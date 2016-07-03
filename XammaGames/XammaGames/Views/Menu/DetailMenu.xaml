@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		x:Class="XammaGames.DetailMenu"
+		Title = "Menu"
+		BackgroundColor="#56427F">
+
+	<ContentPage.Padding>
+    <OnPlatform x:TypeArguments="Thickness"
+                iOS="0, 20, 0, 0"
+                Android="0, 0, 0, 0"
+                WinPhone="0, 0, 0, 0" />
+  	</ContentPage.Padding>
+		
+	<ContentPage.Content>
+		<Grid>
+		  		<Grid.ColumnDefinitions>
+		  			<ColumnDefinition Width="5" />
+		  			<ColumnDefinition Width="*" />
+		  			<ColumnDefinition Width="5" />
+		  		</Grid.ColumnDefinitions>
+
+		  		<Grid.RowDefinitions>
+		  			<RowDefinition Height="5" />
+					<RowDefinition Height="auto" />
+					<RowDefinition Height="auto" />
+		  		</Grid.RowDefinitions>
+			
+		  		<Label x:Name="lblUsuario" Text="Usuario Logueado" TextColor="White" FontSize="32" Grid.Row="1" Grid.Column="1" ></Label>	
+			
+				<Button x:Name="btnIniciar" Grid.Row="2" Grid.Column="1" Opacity="0.9" Text="Log out" FontSize="15" BorderWidth="1" BorderRadius="2" BorderColor="#667BBC"
+					BackgroundColor="#4294B3" TextColor="White"></Button>
+				
+		</Grid>
+	</ContentPage.Content>
+</ContentPage>

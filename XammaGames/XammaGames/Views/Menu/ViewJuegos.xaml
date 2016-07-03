@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+		x:Class="XammaGames.ViewJuegos"
+		xmlns:local="clr-namespace:XammaGames;assembly=XammaGames"
+		Title="Juegos Xamma">
+	<ContentPage.ToolbarItems>
+		<ToolbarItem Icon="add.png" x:Name="addGame" Command="{Binding btnAddGame}"></ToolbarItem>
+	</ContentPage.ToolbarItems>
+	<ContentPage.Content>
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="5"/>
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="5"/>
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="5"/>
+				<RowDefinition Height="*"/>
+			</Grid.RowDefinitions>
+
+		<ListView Grid.Column="1" Grid.Row="1" x:Name="listViewJuegos" SeparatorVisibility="None" IsPullToRefreshEnabled="false"
+		CachingStrategy="RecycleElement"  RowHeight="60" BackgroundColor="White" >
+			<ListView.Behaviors>
+					<local:ListViewSelectedItemBehavior Command="{Binding OutputAgeCommand}"  />
+			</ListView.Behaviors>
+			<ListView.ItemTemplate>
+                <DataTemplate>
+                   <ViewCell >
+                   	<local:rowGames></local:rowGames>
+				   </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+		</ListView>
+
+		</Grid>
+	</ContentPage.Content>
+</ContentPage>
