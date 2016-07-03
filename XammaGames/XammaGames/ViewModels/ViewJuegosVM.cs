@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -9,27 +10,38 @@ namespace XammaGames
 	public class ViewJuegosVM:BaseViewModel
 	{
 		Page nuevoJuego;
-		public string SelectedItemText { get; private set; }
-		public ICommand OutputAgeCommand { get; private set; }
+	
+	
 
 		public ViewJuegosVM(Page NuevoJuego)
 		{
 			nuevoJuego = NuevoJuego;
 			btnAddGame = new Command(ActionAgregarJuegos);
-			OutputAgeCommand = new Command<ViewJuegosVM>(OutputAge);
+			cargarJuegos();
+		}
+		public async void cargarJuegos()
+		{
+			Conexion conect = new Conexion();
+			Results = await conect.ObtenerJuegos();
 		}
 
-		void OutputAge(ViewJuegosVM viewJuegosVM)
-		{
-			SelectedItemText = "{0} is {1} years old";
-			OnPropertyChanged("SelectedItemText");
-		}
-	
 
 		void ActionAgregarJuegos()
 		{
 			nuevoJuego.Navigation.PushModalAsync(new AddGames());
 			//Application.Current.MainPage = new AddGames();
+		}
+		protected ObservableCollection<ViewJuegosVM> _Results;
+		public ObservableCollection<ViewJuegosVM> Results
+		{
+			get { return _Results; }
+			set
+			{
+				_Results = value;
+				OnPropertyChanged(nameof(Results));
+
+			}
+
 		}
 
 		protected Command _AddGame;
@@ -68,6 +80,7 @@ namespace XammaGames
 
 			}
 		}
+
 
 	}
 
