@@ -15,16 +15,17 @@ namespace XammaGames
 			InitializeComponent();
 			viewJuegosVM = new  ViewJuegosVM(this);
 			this.BindingContext = viewJuegosVM;
-			cargarListView();
+
+			//cargarListView();
 
 		}
-		public async void cargarListView()
-		{ 
-			Conexion conect = new Conexion();
-			var slistJuegos =  await conect.ObtenerJuegos(); 
-			//var slistJuegos = await conect.ObtenerJuegos(); 
-			listViewJuegos.ItemsSource = slistJuegos;
-		}
+		//public async void cargarListView()
+		//{ 
+		//	Conexion conect = new Conexion();
+		//	var slistJuegos =  await conect.ObtenerJuegos(); 
+		//	//var slistJuegos = await conect.ObtenerJuegos(); 
+		//	listViewJuegos.ItemsSource = slistJuegos;
+		//}
 	}
 }
 
