@@ -6,10 +6,13 @@ namespace XammaGames
 {
 	public class DetailMenuVM:BaseViewModel
 	{
+		public static string UsuarioGlobal;
+		
 		public DetailMenuVM(string user)
 		{
 			btnSalir = new Command(ActionSalir);
 			Usuario = user;
+			UsuarioGlobal = user;
 		}
 		public DetailMenuVM()
 		{
