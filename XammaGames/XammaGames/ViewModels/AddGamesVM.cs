@@ -29,7 +29,7 @@ namespace XammaGames
 					if (seGuardo)
 					{
 						
-						Application.Current.MainPage = new MasterMenu(Nombre);
+						Application.Current.MainPage = new MasterMenu(DetailMenuVM.UsuarioGlobal);
 					}
 					else 
 					{
