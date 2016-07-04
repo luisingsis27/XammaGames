@@ -16,7 +16,7 @@
 			
 				<Frame HasShadow="true"  OutlineColor="Black" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3">
 				</Frame>
-			<Image Source="icongame.png" Grid.Column="1" Grid.Row="0" HorizontalOptions="Center" />
+			<!--<Image Source="icongame.png" Grid.Column="1" Grid.Row="0" HorizontalOptions="Center" />-->
 			<Label Grid.Column="2" Grid.Row="0" Text="{Binding Nombre}" Style="{DynamicResource  ListItemTextStyle}" TextColor="#B7BFBB" VerticalTextAlignment="Center" VerticalOptions="Center"  HorizontalOptions="Center" />
 
 			

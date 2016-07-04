@@ -13,19 +13,19 @@ namespace XammaGames
 		public ViewJuegos()
 		{
 			InitializeComponent();
-			viewJuegosVM = new  ViewJuegosVM(this);
+			viewJuegosVM = new ViewJuegosVM(this);
 			this.BindingContext = viewJuegosVM;
+			listViewJuegos.ItemsSource = viewJuegosVM.cargarJuegos();
 
-			//cargarListView();
+			listViewJuegos.ItemTapped += (sender, e) =>
+			{
+				(BindingContext as ViewJuegosVM).ActionVerPartidos((((ListView)sender).SelectedItem as ViewJuegosVM).IdJuego);
+			};
 
 		}
-		//public async void cargarListView()
-		//{ 
-		//	Conexion conect = new Conexion();
-		//	var slistJuegos =  await conect.ObtenerJuegos(); 
-		//	//var slistJuegos = await conect.ObtenerJuegos(); 
-		//	listViewJuegos.ItemsSource = slistJuegos;
-		//}
+
+
+	
 	}
 }
 

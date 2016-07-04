@@ -23,14 +23,10 @@ namespace XammaGames {
         private global::Xamarin.Forms.NavigationPage navigationPageDetail;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::XammaGames.ViewJuegos lisjuegos;
-        
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             this.LoadFromXaml(typeof(MasterMenu));
             detailMenu = this.FindByName<global::XammaGames.DetailMenu>("detailMenu");
             navigationPageDetail = this.FindByName<global::Xamarin.Forms.NavigationPage>("navigationPageDetail");
-            lisjuegos = this.FindByName<global::XammaGames.ViewJuegos>("lisjuegos");
         }
     }
 }

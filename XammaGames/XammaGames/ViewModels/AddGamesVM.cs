@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using Acr.UserDialogs;
 using Plugin.Connectivity;
 using Xamarin.Forms;
@@ -15,6 +16,7 @@ namespace XammaGames
 
 		async void ActionGuardarJuego()
 		{
+			
 			if (!string.IsNullOrWhiteSpace(Nombre))
 			{
 				if (await CrossConnectivity.Current.IsRemoteReachable("www.google.com"))
@@ -27,7 +29,7 @@ namespace XammaGames
 					if (seGuardo)
 					{
 						
-						Application.Current.MainPage = new MasterMenu();
+						Application.Current.MainPage = new MasterMenu(Nombre);
 					}
 					else 
 					{
@@ -44,6 +46,7 @@ namespace XammaGames
 			{ 
 				UserDialogs.Instance.ShowError("Ingrese nombre del juego", 1000);
 			}
+
 		}
 		protected Command _GuardarJuego;
 

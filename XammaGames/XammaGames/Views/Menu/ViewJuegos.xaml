@@ -19,7 +19,7 @@
 				<RowDefinition Height="*"/>
 			</Grid.RowDefinitions>
 
-		<ListView Grid.Column="1" Grid.Row="1" x:Name="listViewJuegos" ItemsSource="{Binding Results}" SeparatorVisibility="None" IsPullToRefreshEnabled="false"
+		<ListView Grid.Column="1" Grid.Row="1" x:Name="listViewJuegos"  SeparatorVisibility="None" IsPullToRefreshEnabled="false"
 		CachingStrategy="RecycleElement"  RowHeight="60" BackgroundColor="White" >
 			<ListView.ItemTemplate>
                 <DataTemplate>

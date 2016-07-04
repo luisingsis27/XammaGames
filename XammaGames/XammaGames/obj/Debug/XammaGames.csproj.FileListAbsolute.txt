@@ -21,6 +21,7 @@ C:\projets\XammaGames\XammaGames\XammaGames\bin\Debug\Plugin.Connectivity.Abstra
 C:\projets\XammaGames\XammaGames\XammaGames\bin\Debug\Plugin.Connectivity.Abstractions.xml
 C:\projets\XammaGames\XammaGames\XammaGames\bin\Debug\Plugin.Connectivity.pdb
 C:\projets\XammaGames\XammaGames\XammaGames\bin\Debug\Plugin.Connectivity.xml
+C:\projets\XammaGames\XammaGames\XammaGames\obj\Debug\XammaGames.csprojResolveAssemblyReference.cache
 C:\projets\XammaGames\XammaGames\XammaGames\obj\Debug\XammaGames.MainPage.xaml.g.cs
 C:\projets\XammaGames\XammaGames\XammaGames\obj\Debug\XammaGames.App.xaml.g.cs
 C:\projets\XammaGames\XammaGames\XammaGames\obj\Debug\XammaGames.Views.Menu.MasterMenu.xaml.g.cs
@@ -35,7 +36,5 @@ C:\projets\XammaGames\XammaGames\XammaGames\obj\Debug\XammaGames.Views.PageSingU
 C:\projets\XammaGames\XammaGames\XammaGames\obj\Debug\XammaGames.Views.PageLogin.xaml.g.cs
 C:\projets\XammaGames\XammaGames\XammaGames\obj\Debug\XammaGames.dll
 C:\projets\XammaGames\XammaGames\XammaGames\obj\Debug\XammaGames.pdb
-C:\projets\XammaGames\XammaGames\XammaGames\obj\Debug\XammaGames.dll.mdb
-C:\projets\XammaGames\XammaGames\XammaGames\bin\Debug\XammaGames.dll.mdb
 C:\projets\XammaGames\XammaGames\XammaGames\obj\Debug\XammaGames.dll.mdb
 C:\projets\XammaGames\XammaGames\XammaGames\bin\Debug\XammaGames.dll.mdb

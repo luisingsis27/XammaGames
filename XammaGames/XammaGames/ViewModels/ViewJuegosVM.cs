@@ -10,39 +10,52 @@ namespace XammaGames
 	public class ViewJuegosVM:BaseViewModel
 	{
 		Page nuevoJuego;
-	
-	
+		public event MasterViewVM.ChangeViewMasterEventHandler ChangeViewMasterEvent;
 
+		#region Constructores
 		public ViewJuegosVM(Page NuevoJuego)
 		{
 			nuevoJuego = NuevoJuego;
 			btnAddGame = new Command(ActionAgregarJuegos);
-			cargarJuegos();
+
 		}
-		public async void cargarJuegos()
+
+		#endregion
+
+		#region Metodos
+		public  ObservableCollection<ViewJuegosVM> cargarJuegos()
 		{
+
 			Conexion conect = new Conexion();
-			Results = await conect.ObtenerJuegos();
+			//ObservableCollection<ViewJuegosVM> Results = new ObservableCollection<ViewJuegosVM>();
+			var Results =  conect.ObtenerJuegos();
+			return Results.Result;
 		}
-
-
 		void ActionAgregarJuegos()
 		{
 			nuevoJuego.Navigation.PushModalAsync(new AddGames());
 			//Application.Current.MainPage = new AddGames();
 		}
-		protected ObservableCollection<ViewJuegosVM> _Results;
-		public ObservableCollection<ViewJuegosVM> Results
+		public void ActionVerPartidos(string idjuego)
 		{
-			get { return _Results; }
-			set
-			{
-				_Results = value;
-				OnPropertyChanged(nameof(Results));
-
-			}
-
+			//ChangeViewMasterEvent?.Invoke(new ViewPartidos());
+			nuevoJuego.Navigation.PushModalAsync(new ViewPartidos(idjuego));
 		}
+		#endregion
+
+		#region Propiedades
+		//protected ObservableCollection<ViewJuegosVM> _Results;
+		//public ObservableCollection<ViewJuegosVM> Results
+		//{
+		//	get { return _Results; }
+		//	set
+		//	{
+		//		_Results = value;
+		//		OnPropertyChanged(nameof(Results));
+
+		//	}
+
+		//}
 
 		protected Command _AddGame;
 
@@ -80,7 +93,7 @@ namespace XammaGames
 
 			}
 		}
-
+		#endregion
 
 	}
 

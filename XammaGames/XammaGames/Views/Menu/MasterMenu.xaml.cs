@@ -8,10 +8,16 @@ namespace XammaGames
 {
 	public partial class MasterMenu : MasterDetailPage
 	{
-		public MasterMenu()
+		MasterViewVM masterViewVM;
+		DetailMenuVM detail;
+		public MasterMenu(string Usuario)
 		{
 			UserDialogs.Instance.HideLoading();
 			InitializeComponent();
+			masterViewVM = new MasterViewVM(this);
+			BindingContext = masterViewVM;
+			detail = new DetailMenuVM(Usuario);
+			detailMenu.BindingContext = detail;
 		}
 	}
 }

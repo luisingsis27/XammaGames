@@ -18,222 +18,361 @@ namespace XammaGames
 		{
 		}
 
-		public async Task<List<Usuarios>> login(string Username, string Password)
+		public  Task<List<Usuarios>> login(string Username, string Password)
 		{
-
-			try
-			{
-				UsuariosList listUsuario = new UsuariosList();
-				using (var client = new HttpClient())
+			return Task.Run(async() => { 
+				try
 				{
-					client.BaseAddress = new Uri("https://parseapi.back4app.com/");
-					//client.DefaultRequestHeaders.Accept.Clear();
-					client.DefaultRequestHeaders.Add("X-Parse-Application-Id", "KmSpRBINwKQ8AN1fDl77tyrnKlBxDtKfifMztXZx");
-					client.DefaultRequestHeaders.Add("X-Parse-REST-API-Key", "yttT5ALodijbui6GfeK82PRXtZFqGtuxvFJOjRnT");
-					client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-
-					//HttpResponseMessage response = await client.GetAsync(String.Format("classes/Usuarios/Usuario={0}&Password={1}",Username,Password));
-					HttpResponseMessage response = await client.GetAsync("classes/Usuarios");
-					if (response.IsSuccessStatusCode)
+					UsuariosList listUsuario = new UsuariosList();
+					using (var client = new HttpClient())
 					{
-						var content = await response.Content.ReadAsStringAsync();
+						client.BaseAddress = new Uri("https://parseapi.back4app.com/");
+						//client.DefaultRequestHeaders.Accept.Clear();
+						client.DefaultRequestHeaders.Add("X-Parse-Application-Id", "KmSpRBINwKQ8AN1fDl77tyrnKlBxDtKfifMztXZx");
+						client.DefaultRequestHeaders.Add("X-Parse-REST-API-Key", "yttT5ALodijbui6GfeK82PRXtZFqGtuxvFJOjRnT");
+						client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-						listUsuario = JsonConvert.DeserializeObject<UsuariosList>(content);
-						var we = listUsuario.results.Where(item => item.Usuario == Username && item.Password == Password).ToList();
-						return we;
+
+						//HttpResponseMessage response = await client.GetAsync(String.Format("classes/Usuarios/Usuario={0}&Password={1}",Username,Password));
+						HttpResponseMessage response = await client.GetAsync("classes/Usuarios");
+						if (response.IsSuccessStatusCode)
+						{
+							var content = await response.Content.ReadAsStringAsync();
+
+							listUsuario = JsonConvert.DeserializeObject<UsuariosList>(content);
+							var we = listUsuario.results.Where(item => item.Usuario == Username && item.Password == Password).ToList();
+							return we;
+						}
 					}
+
+					return listUsuario.results;
+
 				}
-
-				return listUsuario.results;
-
-			}
-			catch (Exception ex)
-			{
-				Debug.WriteLine(ex.Message);
-				return null;
-			}
-
+				catch (Exception ex)
+				{
+					Debug.WriteLine(ex.Message);
+					return null;
+				}
+			});
 		}
 
-		public async Task<ObservableCollection<ViewJuegosVM>> ObtenerJuegos()
+		public Task<ObservableCollection<ViewJuegosVM>> ObtenerJuegos()
 		{
-			try
-			{
-				JuegosListVM listJuegos = new JuegosListVM();
-				using (var client = new HttpClient())
-				{
-					client.BaseAddress = new Uri("https://parseapi.back4app.com/");
-					client.DefaultRequestHeaders.Add("X-Parse-Application-Id", "KmSpRBINwKQ8AN1fDl77tyrnKlBxDtKfifMztXZx");
-					client.DefaultRequestHeaders.Add("X-Parse-REST-API-Key", "yttT5ALodijbui6GfeK82PRXtZFqGtuxvFJOjRnT");
-					client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-					HttpResponseMessage response = await client.GetAsync("classes/Juegos");
-					if (response.IsSuccessStatusCode)
+			return Task.Run(async () =>{
+					try
 					{
-						var content = await response.Content.ReadAsStringAsync();
+						JuegosListVM listJuegos = new JuegosListVM();
+						using (var client = new HttpClient())
+						{
+							client.BaseAddress = new Uri("https://parseapi.back4app.com/");
+							client.DefaultRequestHeaders.Add("X-Parse-Application-Id", "KmSpRBINwKQ8AN1fDl77tyrnKlBxDtKfifMztXZx");
+							client.DefaultRequestHeaders.Add("X-Parse-REST-API-Key", "yttT5ALodijbui6GfeK82PRXtZFqGtuxvFJOjRnT");
+							client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-						listJuegos = JsonConvert.DeserializeObject<JuegosListVM>(content);
+							HttpResponseMessage response = await client.GetAsync("classes/Juegos");
+							if (response.IsSuccessStatusCode)
+							{
+								var content = await response.Content.ReadAsStringAsync();
+
+								listJuegos = JsonConvert.DeserializeObject<JuegosListVM>(content);
+								return listJuegos.results;
+							}
+
+						}
 						return listJuegos.results;
 					}
-
-				}
-				return listJuegos.results;
-			}
-			catch (Exception ex)
-			{
-				Debug.WriteLine(ex.Message);
-				return null;
-			}
-		}
-
-		public async Task<int> ObtenerIdJuegos()
-		{
-			try
-			{
-				AddJuegosListVM listJuegos = new AddJuegosListVM();
-				using (var client = new HttpClient())
-				{
-
-					client.BaseAddress = new Uri("https://parseapi.back4app.com/");
-					client.DefaultRequestHeaders.Add("X-Parse-Application-Id", "KmSpRBINwKQ8AN1fDl77tyrnKlBxDtKfifMztXZx");
-					client.DefaultRequestHeaders.Add("X-Parse-REST-API-Key", "yttT5ALodijbui6GfeK82PRXtZFqGtuxvFJOjRnT");
-					client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-					HttpResponseMessage response = await client.GetAsync("classes/Juegos");
-					if (response.IsSuccessStatusCode)
+					catch (Exception ex)
 					{
-						var content = await response.Content.ReadAsStringAsync();
-
-						listJuegos = JsonConvert.DeserializeObject<AddJuegosListVM>(content);
-						var IdNuevo = listJuegos.results.Max(item => int.Parse(item.IdJuego));
-						return IdNuevo + 1;
+						Debug.WriteLine(ex.Message);
+						return null;
 					}
-				}
-				return 0;
-			}
-			catch (Exception ex)
-			{
-				Debug.WriteLine(ex.Message);
-				return 0;
-			}
+			});
 		}
 
-		public async Task<bool> GuardarJuego(string IdJuego, string Nombre)
+		public  Task<int> ObtenerIdJuegos()
 		{
-			try
+			return Task.Run(async () =>
 			{
-				using (var client = new HttpClient())
+				try
 				{
-					client.BaseAddress = new Uri("https://parseapi.back4app.com/");
-					client.DefaultRequestHeaders.Add("X-Parse-Application-Id", "KmSpRBINwKQ8AN1fDl77tyrnKlBxDtKfifMztXZx");
-					client.DefaultRequestHeaders.Add("X-Parse-REST-API-Key", "yttT5ALodijbui6GfeK82PRXtZFqGtuxvFJOjRnT");
-					client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-					HttpResponseMessage wcfResponse = await client.PostAsync("https://parseapi.back4app.com/classes/Juegos", new StringContent("{\"IdJuego\":\"" + IdJuego + "\",\"Nombre\":\"" + Nombre + "\"}", Encoding.UTF8, "application/json"));
-					var content = await wcfResponse.Content.ReadAsStringAsync();
-					return true;
-				}
-			}
-			catch (Exception ex)
-			{
-				Debug.WriteLine(ex.Message);
-				return false;
-			}
-		}
-
-		public async Task<int> ObtenerIdUsuario()
-		{
-			try
-			{
-				RegistrarUsuarioListVM listUsuario = new RegistrarUsuarioListVM();
-				using (var client = new HttpClient())
-				{
-
-					client.BaseAddress = new Uri("https://parseapi.back4app.com/");
-					client.DefaultRequestHeaders.Add("X-Parse-Application-Id", "KmSpRBINwKQ8AN1fDl77tyrnKlBxDtKfifMztXZx");
-					client.DefaultRequestHeaders.Add("X-Parse-REST-API-Key", "yttT5ALodijbui6GfeK82PRXtZFqGtuxvFJOjRnT");
-					client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-					HttpResponseMessage response = await client.GetAsync("classes/Usuarios");
-					if (response.IsSuccessStatusCode)
+					AddJuegosListVM listJuegos = new AddJuegosListVM();
+					using (var client = new HttpClient())
 					{
-						var content = await response.Content.ReadAsStringAsync();
 
-						listUsuario = JsonConvert.DeserializeObject<RegistrarUsuarioListVM>(content);
-						var IdNuevo = listUsuario.results.Max(item => int.Parse(item.IdUsuario));
-						return IdNuevo + 1;
-					}
-				}
-				return 0;
-			}
-			catch (Exception ex)
-			{
-				Debug.WriteLine(ex.Message);
-				return 0;
-			}
-		}
+						client.BaseAddress = new Uri("https://parseapi.back4app.com/");
+						client.DefaultRequestHeaders.Add("X-Parse-Application-Id", "KmSpRBINwKQ8AN1fDl77tyrnKlBxDtKfifMztXZx");
+						client.DefaultRequestHeaders.Add("X-Parse-REST-API-Key", "yttT5ALodijbui6GfeK82PRXtZFqGtuxvFJOjRnT");
+						client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-		public async Task<bool> VerificarUsuario(string NameUsuario)
-		{
-			try
-			{
-				RegistrarUsuarioListVM listUsuario = new RegistrarUsuarioListVM();
-				using (var client = new HttpClient())
-				{
-
-					client.BaseAddress = new Uri("https://parseapi.back4app.com/");
-					client.DefaultRequestHeaders.Add("X-Parse-Application-Id", "KmSpRBINwKQ8AN1fDl77tyrnKlBxDtKfifMztXZx");
-					client.DefaultRequestHeaders.Add("X-Parse-REST-API-Key", "yttT5ALodijbui6GfeK82PRXtZFqGtuxvFJOjRnT");
-					client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-					HttpResponseMessage response = await client.GetAsync("classes/Usuarios");
-					if (response.IsSuccessStatusCode)
-					{
-						var content = await response.Content.ReadAsStringAsync();
-
-						listUsuario = JsonConvert.DeserializeObject<RegistrarUsuarioListVM>(content);
-						var usuarios = listUsuario.results.Where(item => item.Usuario.Equals(NameUsuario)).ToList();
-						if (usuarios.Count >= 1)
+						HttpResponseMessage response = await client.GetAsync("classes/Juegos");
+						if (response.IsSuccessStatusCode)
 						{
-							return true;
-						}
-						else
-						{
-							return false;
+
+							var content = await response.Content.ReadAsStringAsync();
+
+							listJuegos = JsonConvert.DeserializeObject<AddJuegosListVM>(content);
+							var IdNuevo = listJuegos.results.Max(item => int.Parse(item.IdJuego));
+							return IdNuevo + 1;
 						}
 					}
+					return 0;
 				}
-				return false;
-			}
-			catch (Exception ex)
-			{
-				Debug.WriteLine(ex.Message);
-				return false;
-			}
+				catch (Exception ex)
+				{
+					Debug.WriteLine(ex.Message);
+					return 0;
+				}
+			});
 		}
 
-		public async Task<bool> GuardarUsurio(string IdUsuario, string Usuario,string Password)
+		public  Task<bool> GuardarJuego(string IdJuego, string Nombre)
+		{
+			return Task.Run(async () =>
+			{
+				try
+				{
+					using (var client = new HttpClient())
+					{
+						client.BaseAddress = new Uri("https://parseapi.back4app.com/");
+						client.DefaultRequestHeaders.Add("X-Parse-Application-Id", "KmSpRBINwKQ8AN1fDl77tyrnKlBxDtKfifMztXZx");
+						client.DefaultRequestHeaders.Add("X-Parse-REST-API-Key", "yttT5ALodijbui6GfeK82PRXtZFqGtuxvFJOjRnT");
+						client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+						HttpResponseMessage wcfResponse = await client.PostAsync("https://parseapi.back4app.com/classes/Juegos", new StringContent("{\"IdJuego\":\"" + IdJuego + "\",\"Nombre\":\"" + Nombre + "\"}", Encoding.UTF8, "application/json"));
+						var content = await wcfResponse.Content.ReadAsStringAsync();
+						return true;
+					}
+				}
+				catch (Exception ex)
+				{
+					Debug.WriteLine(ex.Message);
+					return false;
+				}
+			});
+		}
+
+		public  Task<int> ObtenerIdUsuario()
+		{
+			return Task.Run(async () =>
+			{
+				try
+				{
+					RegistrarUsuarioListVM listUsuario = new RegistrarUsuarioListVM();
+					using (var client = new HttpClient())
+					{
+
+						client.BaseAddress = new Uri("https://parseapi.back4app.com/");
+						client.DefaultRequestHeaders.Add("X-Parse-Application-Id", "KmSpRBINwKQ8AN1fDl77tyrnKlBxDtKfifMztXZx");
+						client.DefaultRequestHeaders.Add("X-Parse-REST-API-Key", "yttT5ALodijbui6GfeK82PRXtZFqGtuxvFJOjRnT");
+						client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+						HttpResponseMessage response = await client.GetAsync("classes/Usuarios");
+						if (response.IsSuccessStatusCode)
+						{
+							var content = await response.Content.ReadAsStringAsync();
+
+							listUsuario = JsonConvert.DeserializeObject<RegistrarUsuarioListVM>(content);
+							var IdNuevo = listUsuario.results.Max(item => int.Parse(item.IdUsuario));
+							return IdNuevo + 1;
+						}
+					}
+					return 0;
+				}
+				catch (Exception ex)
+				{
+					Debug.WriteLine(ex.Message);
+					return 0;
+				}
+			});
+		}
+
+		public  Task<bool> VerificarUsuario(string NameUsuario)
+		{
+			return Task.Run(async () =>
+			{
+				try
+				{
+					RegistrarUsuarioListVM listUsuario = new RegistrarUsuarioListVM();
+					using (var client = new HttpClient())
+					{
+
+						client.BaseAddress = new Uri("https://parseapi.back4app.com/");
+						client.DefaultRequestHeaders.Add("X-Parse-Application-Id", "KmSpRBINwKQ8AN1fDl77tyrnKlBxDtKfifMztXZx");
+						client.DefaultRequestHeaders.Add("X-Parse-REST-API-Key", "yttT5ALodijbui6GfeK82PRXtZFqGtuxvFJOjRnT");
+						client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+						HttpResponseMessage response = await client.GetAsync("classes/Usuarios");
+						if (response.IsSuccessStatusCode)
+						{
+							var content = await response.Content.ReadAsStringAsync();
+
+							listUsuario = JsonConvert.DeserializeObject<RegistrarUsuarioListVM>(content);
+							var usuarios = listUsuario.results.Where(item => item.Usuario.Equals(NameUsuario)).ToList();
+							if (usuarios.Count >= 1)
+							{
+								return true;
+							}
+							else
+							{
+								return false;
+							}
+						}
+					}
+					return false;
+				}
+				catch (Exception ex)
+				{
+					Debug.WriteLine(ex.Message);
+					return false;
+				}
+			});
+
+		}
+
+		public  Task<bool> GuardarUsurio(string IdUsuario, string Usuario,string Password)
+		{
+			return Task.Run(async () =>
+			{
+				try
+				{
+					using (var client = new HttpClient())
+					{
+						client.BaseAddress = new Uri("https://parseapi.back4app.com/");
+						client.DefaultRequestHeaders.Add("X-Parse-Application-Id", "KmSpRBINwKQ8AN1fDl77tyrnKlBxDtKfifMztXZx");
+						client.DefaultRequestHeaders.Add("X-Parse-REST-API-Key", "yttT5ALodijbui6GfeK82PRXtZFqGtuxvFJOjRnT");
+						client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+						HttpResponseMessage wcfResponse = await client.PostAsync("https://parseapi.back4app.com/classes/Usuarios", new StringContent("{\"IdUsuario\":\"" + IdUsuario + "\",\"Usuario\":\"" + Usuario + "\",\"Password\":\"" + Password + "\"}", Encoding.UTF8, "application/json"));
+						var content = await wcfResponse.Content.ReadAsStringAsync();
+						return true;
+					}
+				}
+				catch (Exception ex)
+				{
+					Debug.WriteLine(ex.Message);
+					return false;
+				}
+			});
+		}
+
+		public  Task<ObservableCollection<ViewPartidosVM>> ObtenerPartidos()
+		{
+			return Task.Run(async () =>
+			{
+				try
+				{
+					PartidosListVM listPartidos = new PartidosListVM();
+
+					using (var client = new HttpClient())
+					{
+						client.BaseAddress = new Uri("https://parseapi.back4app.com/");
+						client.DefaultRequestHeaders.Add("X-Parse-Application-Id", "KmSpRBINwKQ8AN1fDl77tyrnKlBxDtKfifMztXZx");
+						client.DefaultRequestHeaders.Add("X-Parse-REST-API-Key", "yttT5ALodijbui6GfeK82PRXtZFqGtuxvFJOjRnT");
+						client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+						HttpResponseMessage response = await client.GetAsync("classes/Partidos");
+						if (response.IsSuccessStatusCode)
+						{
+							
+							var content = await response.Content.ReadAsStringAsync();
+
+							listPartidos = JsonConvert.DeserializeObject<PartidosListVM>(content);
+						
+							foreach (var item in listPartidos.results)
+							{
+								var nombreJuego = ObtenerNombreJuego(item.IdJuego);
+								item.NameJuego = nombreJuego.ToString();
+								var usuario1 = ObtenerNombreJugador(item.IdUsuario1);
+								item.Usuario1 = usuario1.ToString();
+								var usuario2 = ObtenerNombreJugador(item.IdUsuario2);
+								item.Usuario2 = usuario2.ToString();
+
+
+							}
+
+							return listPartidos.results;
+						}
+
+					}
+					return listPartidos.results;
+				}
+				catch (Exception ex)
+				{
+					Debug.WriteLine(ex.Message);
+					return null;
+				}
+			});
+		}
+
+
+		public async Task<string> ObtenerNombreJuego(string IdJuego)
 		{
 			try
-			{
-				using (var client = new HttpClient())
 				{
-					client.BaseAddress = new Uri("https://parseapi.back4app.com/");
-					client.DefaultRequestHeaders.Add("X-Parse-Application-Id", "KmSpRBINwKQ8AN1fDl77tyrnKlBxDtKfifMztXZx");
-					client.DefaultRequestHeaders.Add("X-Parse-REST-API-Key", "yttT5ALodijbui6GfeK82PRXtZFqGtuxvFJOjRnT");
-					client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+					AddJuegosListVM listJuegos = new AddJuegosListVM();
+					using (var client = new HttpClient())
+					{
 
-					HttpResponseMessage wcfResponse = await client.PostAsync("https://parseapi.back4app.com/classes/Usuarios", new StringContent("{\"IdUsuario\":\"" + IdUsuario + "\",\"Usuario\":\"" + Usuario + "\",\"Password\":\""+Password+"\"}", Encoding.UTF8, "application/json"));
-					var content = await wcfResponse.Content.ReadAsStringAsync();
-					return true;
+						client.BaseAddress = new Uri("https://parseapi.back4app.com/");
+						client.DefaultRequestHeaders.Add("X-Parse-Application-Id", "KmSpRBINwKQ8AN1fDl77tyrnKlBxDtKfifMztXZx");
+						client.DefaultRequestHeaders.Add("X-Parse-REST-API-Key", "yttT5ALodijbui6GfeK82PRXtZFqGtuxvFJOjRnT");
+						client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+						HttpResponseMessage response = await client.GetAsync("classes/Juegos");
+						if (response.IsSuccessStatusCode)
+						{
+
+							var content = await response.Content.ReadAsStringAsync();
+
+							listJuegos = JsonConvert.DeserializeObject<AddJuegosListVM>(content);
+							var juegoNombre = listJuegos.results.Where(item => item.IdJuego == IdJuego).First();
+							return juegoNombre.Nombre;
+						}
+					}
+					return "";
 				}
-			}
-			catch (Exception ex)
+				catch (Exception ex)
+				{
+					Debug.WriteLine(ex.Message);
+					return "";
+				}
+
+		}
+
+		public Task<string> ObtenerNombreJugador(string IdJugador)
+		{
+			return Task.Run(async () =>
 			{
-				Debug.WriteLine(ex.Message);
-				return false;
-			}
+				try
+				{
+					UsuariosList listJugador = new UsuariosList();
+					using (var client = new HttpClient())
+					{
+
+						client.BaseAddress = new Uri("https://parseapi.back4app.com/");
+						client.DefaultRequestHeaders.Add("X-Parse-Application-Id", "KmSpRBINwKQ8AN1fDl77tyrnKlBxDtKfifMztXZx");
+						client.DefaultRequestHeaders.Add("X-Parse-REST-API-Key", "yttT5ALodijbui6GfeK82PRXtZFqGtuxvFJOjRnT");
+						client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+						HttpResponseMessage response = await client.GetAsync("classes/Juegos");
+						if (response.IsSuccessStatusCode)
+						{
+
+							var content = await response.Content.ReadAsStringAsync();
+
+							listJugador = JsonConvert.DeserializeObject<UsuariosList>(content);
+							var juegoNombre = listJugador.results.Where(item => item.IdUsuario == IdJugador).First();
+							return juegoNombre.Usuario;
+						}
+					}
+					return "";
+				}
+				catch (Exception ex)
+				{
+					Debug.WriteLine(ex.Message);
+					return "";
+				}
+			});
 		}
 	}
 }

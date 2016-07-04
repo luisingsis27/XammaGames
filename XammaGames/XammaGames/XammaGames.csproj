@@ -84,7 +84,8 @@
     </Compile>
     <Compile Include="ViewModels\RegistrarUsuarioVM.cs" />
     <Compile Include="ViewModels\ViewPartidosVM.cs" />
-    <Compile Include="Clases\ListViewSelectedItemBehavior.cs" />
+    <Compile Include="ViewModels\MasterViewVM.cs" />
+    <Compile Include="ViewModels\DetailMenuVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainPage.xaml">

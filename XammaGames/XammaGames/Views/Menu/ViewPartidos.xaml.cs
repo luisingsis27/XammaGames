@@ -7,16 +7,15 @@ namespace XammaGames
 {
 	public partial class ViewPartidos : ContentPage
 	{
-		public ViewPartidos()
+		ViewPartidosVM viewPartidosVM;
+		public ViewPartidos(string idJuegos)
 		{
 			InitializeComponent();
-			List<string> adds = new List<string>();
-			for (var i = 0; i < 20; i++)
-			{
-				adds.Add(i.ToString());
+			viewPartidosVM = new ViewPartidosVM(idJuegos);
+			this.BindingContext = viewPartidosVM;
+			listViewPartidos.ItemsSource = viewPartidosVM.cargarPartidos();
 
-			}
-			listViewPartidos.ItemsSource = adds;
+
 		}
 	}
 }

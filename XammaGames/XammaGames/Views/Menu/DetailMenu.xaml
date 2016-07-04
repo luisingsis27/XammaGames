@@ -26,9 +26,9 @@
 					<RowDefinition Height="auto" />
 		  		</Grid.RowDefinitions>
 			
-		  		<Label x:Name="lblUsuario" Text="Usuario Logueado" TextColor="White" FontSize="32" Grid.Row="1" Grid.Column="1" ></Label>	
+		  		<Label x:Name="lblUsuario" Text="{Binding Usuario}" TextColor="White" FontSize="32" Grid.Row="1" Grid.Column="1" ></Label>	
 			
-				<Button x:Name="btnIniciar" Grid.Row="2" Grid.Column="1" Opacity="0.9" Text="Log out" FontSize="15" BorderWidth="1" BorderRadius="2" BorderColor="#667BBC"
+				<Button x:Name="btnIniciar" Grid.Row="2" Grid.Column="1" Command="{Binding btnSalir}" Opacity="0.9" Text="Log out" FontSize="15" BorderWidth="1" BorderRadius="2" BorderColor="#667BBC"
 					BackgroundColor="#4294B3" TextColor="White"></Button>
 				
 		</Grid>

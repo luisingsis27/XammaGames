@@ -36,7 +36,7 @@ namespace XammaGames
 					List<Usuarios> listUsuario = await conec.login(Usuario.Trim(), Password.Trim());
 					if (listUsuario.Count == 1)
 					{
-						Application.Current.MainPage = new MasterMenu();
+						Application.Current.MainPage = new MasterMenu(Usuario);
 					}
 					else
 					{

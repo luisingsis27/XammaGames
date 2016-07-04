@@ -12,9 +12,9 @@
 
   <MasterDetailPage.Detail >
  		<NavigationPage x:Name="navigationPageDetail" BarBackgroundColor="#56427F">
-			<x:Arguments>
+			<!--<x:Arguments>
 				<local:ViewJuegos x:Name="lisjuegos"/>
-			</x:Arguments>
+			</x:Arguments>-->
 		</NavigationPage>
  </MasterDetailPage.Detail>
 </MasterDetailPage>	

@@ -1,12 +1,38 @@
 ﻿using System;
+using System.Collections.ObjectModel;
+using System.Linq;
+
 namespace XammaGames
 {
 	public class ViewPartidosVM:BaseViewModel
 	{
-		public ViewPartidosVM()
+		public event MasterViewVM.ChangeViewMasterEventHandler ChangeViewMasterEvent;
+		string idJuego;
+		public ViewPartidosVM(string idjuegonuevo)
 		{
+			idJuego = idjuegonuevo;
+		}
+		public ObservableCollection<ViewPartidosVM> cargarPartidos()
+		{
+
+			Conexion conect = new Conexion();
+			//ObservableCollection<ViewJuegosVM> Results = new ObservableCollection<ViewJuegosVM>();
+			var Results = conect.ObtenerPartidos();
+			//foreach (var item in Results.Result)
+			//{
+			//	var nombreJuego = conect.ObtenerNombreJuego(item.IdJuego);
+			//	item.NameJuego = nombreJuego.ToString();
+			//	var usuario1 = conect.ObtenerNombreJugador(item.IdUsuario1);
+			//	item.Usuario1 = usuario1.ToString();
+			//	var usuario2 = conect.ObtenerNombreJugador(item.IdUsuario2);
+			//	item.Usuario2 = usuario2.ToString();
+
+
+			//}
+			return new ObservableCollection<ViewPartidosVM>( Results.Result.Where(item => item.IdJuego == idJuego).ToList()); 
 		}
 
+		#region Propiedades
 		protected string _IdPartido;
 
 		public string IdPartido
@@ -33,6 +59,18 @@ namespace XammaGames
 			}
 		}
 
+		protected string _NameJuego;
+
+		public string NameJuego
+		{
+			get { return _NameJuego; }
+			set
+			{
+				_NameJuego = value;
+				OnPropertyChanged(nameof(NameJuego));
+
+			}
+		}
 		protected string _IdUsuario1;
 		public string IdUsuario1
 		{
@@ -107,6 +145,12 @@ namespace XammaGames
 
 			}
 		}
+		#endregion
+
+	}
+	public class PartidosListVM
+	{
+		public ObservableCollection<ViewPartidosVM> results { get; set; }
 	}
 }
 

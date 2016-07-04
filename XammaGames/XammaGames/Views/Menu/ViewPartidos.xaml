@@ -20,8 +20,8 @@
 				<RowDefinition Height="*"/>
 			</Grid.RowDefinitions>
 
-			<ListView Grid.Column="1" Grid.Row="1" x:Name="listViewPartidos" SeparatorVisibility="None" IsPullToRefreshEnabled="true"
-		CachingStrategy="RecycleElement" BindingContext="" RowHeight="65" BackgroundColor="White" >
+			<ListView Grid.Column="1" Grid.Row="1" x:Name="listViewPartidos" SeparatorVisibility="None" 
+				CachingStrategy="RecycleElement" RowHeight="65" BackgroundColor="White" >
 			<ListView.ItemTemplate>
                 <DataTemplate >
                    <ViewCell>

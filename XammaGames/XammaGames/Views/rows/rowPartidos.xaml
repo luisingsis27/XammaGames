@@ -21,8 +21,12 @@
 				<Frame HasShadow="true"  OutlineColor="Black" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" Grid.RowSpan="2">
 				</Frame>
 			
-			<Label Grid.Column="1" Grid.Row="0" Text="{Binding}" Style="{DynamicResource  ListItemTextStyle}" TextColor="#B7BFBB" VerticalTextAlignment="Center"   HorizontalOptions="Start" />
-			<Label Grid.Column="1" Grid.Row="1" Text="{Binding}" Style="{DynamicResource  ListItemTextStyle}" TextColor="#B7BFBB" VerticalTextAlignment="Center"   HorizontalOptions="Start" />
+			<Label Grid.Column="1" Grid.Row="0" Text="{Binding Usuario1}" Style="{DynamicResource  ListItemTextStyle}" TextColor="#B7BFBB" VerticalTextAlignment="Center"   HorizontalOptions="Start" />
+			<Label Grid.Column="1" Grid.Row="0" Text="{Binding Score1}" Style="{DynamicResource  ListItemTextStyle}" TextColor="#B7BFBB" VerticalTextAlignment="Center"   HorizontalOptions="End" />
+			
+			<Label Grid.Column="1" Grid.Row="1" Text="{Binding Usuario2}" Style="{DynamicResource  ListItemTextStyle}" TextColor="#B7BFBB" VerticalTextAlignment="Center"   HorizontalOptions="Start" />
+			<Label Grid.Column="1" Grid.Row="1" Text="{Binding Score2}" Style="{DynamicResource  ListItemTextStyle}" TextColor="#B7BFBB" VerticalTextAlignment="Center"   HorizontalOptions="End" />
+			
 			<Label Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" Text="{Binding}" Style="{DynamicResource  ListItemTextStyle}" TextColor="#B7BFBB" VerticalTextAlignment="Center"   HorizontalOptions="Start" />
 
 			

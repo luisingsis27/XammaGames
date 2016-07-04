@@ -1,16 +1,20 @@
 ﻿<Properties StartupItem="XammaGames\XammaGames.Droid\XammaGames.Droid.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.XammaGames.Droid PreferredExecutionTarget="Android.Nexus 4 (KitKat)" />
+  <MonoDevelop.Ide.ItemProperties.XammaGames.Droid PreferredExecutionTarget="Android.ZY22387J66" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="C:\projets\XammaGames\XammaGames\XammaGames\Clases\ListViewSelectedItemBehavior.cs" line="54" column="1" />
+      <Breakpoint file="C:\projets\XammaGames\XammaGames\XammaGames\Clases\ListViewSelectedItemBehavior.cs" line="49" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="XammaGames\XammaGames\App.xaml.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="XammaGames\XammaGames\Views\Menu\ViewJuegos.xaml.cs">
     <Files>
-      <File FileName="XammaGames\XammaGames\ViewModels\PageLoginVM.cs" Line="15" Column="52" />
-      <File FileName="XammaGames\XammaGames\Views\PageSingUp.xaml" Line="5" Column="3" />
-      <File FileName="XammaGames\XammaGames\Views\PageSingUp.xaml.cs" Line="13" Column="4" />
-      <File FileName="XammaGames\XammaGames\App.xaml.cs" Line="19" Column="17" />
+      <File FileName="XammaGames\XammaGames\Clases\Conexion.cs" Line="149" Column="4" />
+      <File FileName="XammaGames\XammaGames\ViewModels\AddGamesVM.cs" Line="41" Column="40" />
+      <File FileName="XammaGames\XammaGames\Views\Menu\ViewJuegos.xaml" Line="22" Column="95" />
+      <File FileName="XammaGames\XammaGames\Views\Menu\ViewJuegos.xaml.cs" Line="34" Column="2" />
+      <File FileName="XammaGames\XammaGames\ViewModels\ViewJuegosVM.cs" Line="20" Column="6" />
     </Files>
   </MonoDevelop.Ide.Workbench>
 </Properties>
