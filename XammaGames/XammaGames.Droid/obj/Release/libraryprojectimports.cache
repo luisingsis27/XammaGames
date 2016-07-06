@@ -2,31 +2,13 @@
 <Paths>
   <Jars></Jars>
   <ResolvedResourceDirectories>
-    <ResolvedResourceDirectory>C:\projets\XammaGames\XammaGames\XammaGames.Droid\obj\Release\__library_projects__\Acr.Support.Android\library_project_imports\res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>C:\projets\XammaGames\XammaGames\XammaGames.Droid\obj\Release\__library_projects__\Acr.UserDialogs\library_project_imports\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>C:\projets\XammaGames\XammaGames\XammaGames.Droid\obj\Release\__library_projects__\AndHUD\library_project_imports\res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>C:\projets\XammaGames\XammaGames\XammaGames.Droid\obj\Release\__library_projects__\Plugin.Connectivity\library_project_imports\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>C:\projets\XammaGames\XammaGames\XammaGames.Droid\obj\Release\__library_projects__\Splat\library_project_imports\res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>C:\projets\XammaGames\XammaGames\XammaGames.Droid\obj\Release\__library_projects__\Xamarin.Forms.Platform.Android\library_project_imports\res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>C:\projets\XammaGames\XammaGames\XammaGames.Droid\obj\Release\__library_projects__\Xamarin.Forms.Platform\library_project_imports\res</ResolvedResourceDirectory>
   </ResolvedResourceDirectories>
-  <ResolvedAssetDirectories>
-    <ResolvedAssetDirectory>C:\projets\XammaGames\XammaGames\XammaGames.Droid\obj\Release\__library_projects__\Acr.Support.Android\library_project_imports\assets</ResolvedAssetDirectory>
-    <ResolvedAssetDirectory>C:\projets\XammaGames\XammaGames\XammaGames.Droid\obj\Release\__library_projects__\Acr.UserDialogs\library_project_imports\assets</ResolvedAssetDirectory>
-    <ResolvedAssetDirectory>C:\projets\XammaGames\XammaGames\XammaGames.Droid\obj\Release\__library_projects__\AndHUD\library_project_imports\assets</ResolvedAssetDirectory>
-    <ResolvedAssetDirectory>C:\projets\XammaGames\XammaGames\XammaGames.Droid\obj\Release\__library_projects__\Plugin.Connectivity\library_project_imports\assets</ResolvedAssetDirectory>
-    <ResolvedAssetDirectory>C:\projets\XammaGames\XammaGames\XammaGames.Droid\obj\Release\__library_projects__\Splat\library_project_imports\assets</ResolvedAssetDirectory>
-    <ResolvedAssetDirectory>C:\projets\XammaGames\XammaGames\XammaGames.Droid\obj\Release\__library_projects__\Xamarin.Forms.Platform.Android\library_project_imports\assets</ResolvedAssetDirectory>
-    <ResolvedAssetDirectory>C:\projets\XammaGames\XammaGames\XammaGames.Droid\obj\Release\__library_projects__\Xamarin.Forms.Platform\library_project_imports\assets</ResolvedAssetDirectory>
-  </ResolvedAssetDirectories>
+  <ResolvedAssetDirectories />
   <ResolvedEnvironmentFiles />
   <ResolvedResourceDirectoryStamps>
-    <ResolvedResourceDirectoryStamp>C:\projets\XammaGames\XammaGames\XammaGames.Droid\obj\Release\__library_projects__\Acr.Support.Android.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>C:\projets\XammaGames\XammaGames\XammaGames.Droid\obj\Release\__library_projects__\Acr.UserDialogs.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>C:\projets\XammaGames\XammaGames\XammaGames.Droid\obj\Release\__library_projects__\AndHUD.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>C:\projets\XammaGames\XammaGames\XammaGames.Droid\obj\Release\__library_projects__\Plugin.Connectivity.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>C:\projets\XammaGames\XammaGames\XammaGames.Droid\obj\Release\__library_projects__\Splat.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>C:\projets\XammaGames\XammaGames\XammaGames.Droid\obj\Release\__library_projects__\Xamarin.Forms.Platform.Android.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>C:\projets\XammaGames\XammaGames\XammaGames.Droid\obj\Release\__library_projects__\Xamarin.Forms.Platform.stamp</ResolvedResourceDirectoryStamp>
   </ResolvedResourceDirectoryStamps>
 </Paths>

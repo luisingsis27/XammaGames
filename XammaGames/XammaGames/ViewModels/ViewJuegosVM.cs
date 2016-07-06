@@ -39,7 +39,11 @@ namespace XammaGames
 		public void ActionVerPartidos(string idjuego)
 		{
 			//ChangeViewMasterEvent?.Invoke(new ViewPartidos());
-			nuevoJuego.Navigation.PushModalAsync(new ViewPartidos(idjuego));
+			//Application.Current.MainPage = new NavigationPage (new ViewPartidos(idjuego));
+			nuevoJuego.Navigation.PushModalAsync(new NavigationPage(new ViewPartidos(idjuego))
+			{
+				BarBackgroundColor = Color.FromHex("#56427F")
+			});
 		}
 		#endregion
 

@@ -3,7 +3,8 @@
 		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 		x:Class="XammaGames.DetailMenu"
 		Title = "Menu"
-		BackgroundColor="#56427F">
+		BackgroundColor="#56427F"
+		Opacity="0.9">
 
 	<ContentPage.Padding>
     <OnPlatform x:TypeArguments="Thickness"
@@ -28,7 +29,7 @@
 			
 		  		<Label x:Name="lblUsuario" Text="{Binding Usuario}" TextColor="White" FontSize="32" Grid.Row="1" Grid.Column="1" ></Label>	
 			
-				<Button x:Name="btnIniciar" Grid.Row="2" Grid.Column="1" Command="{Binding btnSalir}" Opacity="0.9" Text="Log out" FontSize="15" BorderWidth="1" BorderRadius="2" BorderColor="#667BBC"
+				<Button x:Name="btnIniciar" Grid.Row="2" Grid.Column="1" Command="{Binding btnSalir}" Opacity="0.95" Text="Log out" FontSize="15" BorderWidth="1" BorderRadius="2" BorderColor="#667BBC"
 					BackgroundColor="#4294B3" TextColor="White"></Button>
 				
 		</Grid>

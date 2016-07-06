@@ -21,7 +21,7 @@
 			</Grid.RowDefinitions>
 
 			<ListView Grid.Column="1" Grid.Row="1" x:Name="listViewPartidos" SeparatorVisibility="None" 
-				CachingStrategy="RecycleElement" RowHeight="65" BackgroundColor="White" >
+				CachingStrategy="RecycleElement" RowHeight="90" BackgroundColor="White" >
 			<ListView.ItemTemplate>
                 <DataTemplate >
                    <ViewCell>

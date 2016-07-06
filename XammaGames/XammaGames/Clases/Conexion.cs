@@ -280,13 +280,12 @@ namespace XammaGames
 						
 							foreach (var item in listPartidos.results)
 							{
-								var nombreJuego = ObtenerNombreJuego(item.IdJuego);
+								var nombreJuego = await ObtenerNombreJuego(item.IdJuego);
 								item.NameJuego = nombreJuego.ToString();
-								var usuario1 = ObtenerNombreJugador(item.IdUsuario1);
+								var usuario1 = await ObtenerNombreJugador(item.IdUsuario1);
 								item.Usuario1 = usuario1.ToString();
-								var usuario2 = ObtenerNombreJugador(item.IdUsuario2);
+								var usuario2 = await ObtenerNombreJugador(item.IdUsuario2);
 								item.Usuario2 = usuario2.ToString();
-
 
 							}
 
@@ -354,7 +353,7 @@ namespace XammaGames
 						client.DefaultRequestHeaders.Add("X-Parse-REST-API-Key", "yttT5ALodijbui6GfeK82PRXtZFqGtuxvFJOjRnT");
 						client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-						HttpResponseMessage response = await client.GetAsync("classes/Juegos");
+						HttpResponseMessage response = await client.GetAsync("classes/Usuarios");
 						if (response.IsSuccessStatusCode)
 						{
 

@@ -18,8 +18,11 @@ namespace XammaGames
 
 		void CambiarDetail(Page page)
 		{
-			
-			MenuMaster.Detail=new NavigationPage(page);
+
+			MenuMaster.Detail = new NavigationPage(page)
+			{ 
+				BarBackgroundColor = Color.FromHex("#56427F")
+			};
 		}
 
 

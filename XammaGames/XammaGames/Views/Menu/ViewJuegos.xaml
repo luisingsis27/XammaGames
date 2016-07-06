@@ -20,7 +20,7 @@
 			</Grid.RowDefinitions>
 
 		<ListView Grid.Column="1" Grid.Row="1" x:Name="listViewJuegos"  SeparatorVisibility="None" IsPullToRefreshEnabled="false"
-		CachingStrategy="RecycleElement"  RowHeight="60" BackgroundColor="White" >
+		CachingStrategy="RecycleElement"  RowHeight="70" BackgroundColor="White" >
 			<ListView.ItemTemplate>
                 <DataTemplate>
                    <ViewCell >
