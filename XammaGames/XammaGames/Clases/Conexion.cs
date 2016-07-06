@@ -8,7 +8,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-
+using Xamarin.Forms;
 
 namespace XammaGames
 {
@@ -286,7 +286,8 @@ namespace XammaGames
 								item.Usuario1 = usuario1.ToString();
 								var usuario2 = await ObtenerNombreJugador(item.IdUsuario2);
 								item.Usuario2 = usuario2.ToString();
-
+								item.Color1 = int.Parse(item.Score1) >= int.Parse(item.Score2) ? Color.Green : Color.Red;
+								item.Color2 = int.Parse(item.Score2) >= int.Parse(item.Score1) ? Color.Green : Color.Red;
 							}
 
 							return listPartidos.results;

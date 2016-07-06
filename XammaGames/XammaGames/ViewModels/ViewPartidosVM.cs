@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using Acr.UserDialogs;
+using Xamarin.Forms;
 
 namespace XammaGames
 {
@@ -8,31 +10,42 @@ namespace XammaGames
 	{
 		public event MasterViewVM.ChangeViewMasterEventHandler ChangeViewMasterEvent;
 		string idJuego;
-		public ViewPartidosVM(string idjuegonuevo)
+		Page _pagePartidos;
+		public ViewPartidosVM(string idjuegonuevo,Page pagePartidos)
 		{
+			_pagePartidos = pagePartidos;
 			idJuego = idjuegonuevo;
+			btnAddPartido = new Command(ActionAgregarPartidos);
 		}
+		void ActionAgregarPartidos()
+		{
+			_pagePartidos.Navigation.PushModalAsync(new AddPartidos());
+			//Application.Current.MainPage = new AddGames();
+		}
+
 		public ObservableCollection<ViewPartidosVM> cargarPartidos()
 		{
-
 			Conexion conect = new Conexion();
-			//ObservableCollection<ViewJuegosVM> Results = new ObservableCollection<ViewJuegosVM>();
 			var Results = conect.ObtenerPartidos();
-			//foreach (var item in Results.Result)
-			//{
-			//	var nombreJuego = conect.ObtenerNombreJuego(item.IdJuego);
-			//	item.NameJuego = nombreJuego.ToString();
-			//	var usuario1 = conect.ObtenerNombreJugador(item.IdUsuario1);
-			//	item.Usuario1 = usuario1.ToString();
-			//	var usuario2 = conect.ObtenerNombreJugador(item.IdUsuario2);
-			//	item.Usuario2 = usuario2.ToString();
-
-
-			//}
 			return new ObservableCollection<ViewPartidosVM>( Results.Result.Where(item => item.IdJuego == idJuego).ToList()); 
 		}
 
 		#region Propiedades
+
+		protected Command _AddPartido;
+
+		public Command btnAddPartido
+		{
+			get { return _AddPartido; }
+			set
+			{
+				_AddPartido = value;
+				OnPropertyChanged(nameof(btnAddPartido));
+			}
+		}
+
+
+
 		protected string _IdPartido;
 
 		public string IdPartido
@@ -142,6 +155,31 @@ namespace XammaGames
 			{
 				_Usuario2 = value;
 				OnPropertyChanged(nameof(Usuario2));
+
+			}
+		}
+
+		protected Color _Color1;
+
+		public Color Color1
+		{
+			get { return _Color1; }
+			set
+			{
+				_Color1 = value;
+				//OnPropertyChanged(nameof(Color));
+
+			}
+		}
+		protected Color _Color2;
+
+		public Color Color2
+		{
+			get { return _Color2; }
+			set
+			{
+				_Color2 = value;
+				//OnPropertyChanged(nameof(Color));
 
 			}
 		}

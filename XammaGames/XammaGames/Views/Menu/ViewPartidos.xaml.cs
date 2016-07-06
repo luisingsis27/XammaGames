@@ -11,7 +11,7 @@ namespace XammaGames
 		public ViewPartidos(string idJuegos)
 		{
 			InitializeComponent();
-			viewPartidosVM = new ViewPartidosVM(idJuegos);
+			viewPartidosVM = new ViewPartidosVM(idJuegos,this);
 			this.BindingContext = viewPartidosVM;
 			listViewPartidos.ItemsSource = viewPartidosVM.cargarPartidos();
 

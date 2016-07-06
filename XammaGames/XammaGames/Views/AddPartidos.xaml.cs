@@ -7,9 +7,12 @@ namespace XammaGames
 {
 	public partial class AddPartidos : ContentPage
 	{
+		AddPartidosVM addPartidosVM;
 		public AddPartidos()
 		{
 			InitializeComponent();
+			addPartidosVM = new AddPartidosVM();
+			BindingContext = addPartidosVM;
 		}
 	}
 }

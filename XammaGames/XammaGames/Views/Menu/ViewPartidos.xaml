@@ -6,7 +6,7 @@
 		xmlns:local="clr-namespace:XammaGames;assembly=XammaGames"
 		Title="Partidos Xamma">
 	<ContentPage.ToolbarItems>
-		<ToolbarItem Icon="add.png"></ToolbarItem>
+		<ToolbarItem Icon="add.png" Command="{Binding btnAddPartido}"></ToolbarItem>
 	</ContentPage.ToolbarItems>
 	<ContentPage.Content>
 		<Grid>

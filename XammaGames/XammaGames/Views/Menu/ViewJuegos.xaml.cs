@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using Acr.UserDialogs;
 
 namespace XammaGames
 {
@@ -19,6 +20,7 @@ namespace XammaGames
 
 			listViewJuegos.ItemTapped += (sender, e) =>
 			{
+				
 				(BindingContext as ViewJuegosVM).ActionVerPartidos((((ListView)sender).SelectedItem as ViewJuegosVM).IdJuego);
 			};
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Acr.UserDialogs;
 using Xamarin.Forms;
 
 namespace XammaGames
@@ -40,6 +41,7 @@ namespace XammaGames
 		{
 			//ChangeViewMasterEvent?.Invoke(new ViewPartidos());
 			//Application.Current.MainPage = new NavigationPage (new ViewPartidos(idjuego));
+
 			nuevoJuego.Navigation.PushModalAsync(new NavigationPage(new ViewPartidos(idjuego))
 			{
 				BarBackgroundColor = Color.FromHex("#56427F")

@@ -86,6 +86,7 @@
     <Compile Include="ViewModels\ViewPartidosVM.cs" />
     <Compile Include="ViewModels\MasterViewVM.cs" />
     <Compile Include="ViewModels\DetailMenuVM.cs" />
+    <Compile Include="ViewModels\AddPartidosVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainPage.xaml">
