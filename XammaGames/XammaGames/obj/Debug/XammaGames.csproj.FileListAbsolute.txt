@@ -38,3 +38,5 @@ C:\projets\XammaGames\XammaGames\XammaGames\obj\Debug\XammaGames.pdb
 C:\projets\XammaGames\XammaGames\XammaGames\obj\Debug\XammaGames.csprojResolveAssemblyReference.cache
 C:\projets\XammaGames\XammaGames\XammaGames\obj\Debug\XammaGames.dll.mdb
 C:\projets\XammaGames\XammaGames\XammaGames\bin\Debug\XammaGames.dll.mdb
+C:\projets\XammaGames\XammaGames\XammaGames\obj\Debug\XammaGames.dll.mdb
+C:\projets\XammaGames\XammaGames\XammaGames\bin\Debug\XammaGames.dll.mdb

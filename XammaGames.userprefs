@@ -5,15 +5,9 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="XammaGames\XammaGames\Clases\Conexion.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="XammaGames\XammaGames\Views\rows\rowPartidos.xaml">
     <Files>
-      <File FileName="XammaGames\XammaGames\Clases\Conexion.cs" Line="38" Column="1" />
-      <File FileName="XammaGames\XammaGames\Views\rows\rowPartidos.xaml" Line="35" Column="4" />
-      <File FileName="XammaGames\XammaGames\Views\Menu\ViewPartidos.xaml" Line="24" Column="40" />
-      <File FileName="XammaGames\XammaGames\Views\rows\rowGames.xaml" Line="15" Column="22" />
-      <File FileName="XammaGames\XammaGames\Views\Menu\ViewJuegos.xaml" Line="24" Column="27" />
-      <File FileName="XammaGames\XammaGames\ViewModels\ViewPartidosVM.cs" Line="142" Column="5" />
-      <File FileName="XammaGames\XammaGames\ViewModels\PageLoginVM.cs" Line="37" Column="1" />
+      <File FileName="XammaGames\XammaGames\Views\rows\rowPartidos.xaml" Line="29" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
 </Properties>
