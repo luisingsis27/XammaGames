@@ -2,13 +2,15 @@
 <Paths>
   <Jars></Jars>
   <ResolvedResourceDirectories>
-    <ResolvedResourceDirectory>C:\projets\XammaGames\XammaGames\XammaGames.Droid\obj\Release\__library_projects__\AndHUD\library_project_imports\res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>C:\projets\XammaGames\XammaGames\XammaGames.Droid\obj\Release\__library_projects__\Splat\library_project_imports\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>/Users/dam01/Projects/luisingsis27/XammaGames.git/XammaGames/XammaGames.Droid/obj/Release/__library_projects__/AndHUD/library_project_imports/res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>/Users/dam01/Projects/luisingsis27/XammaGames.git/XammaGames/XammaGames.Droid/obj/Release/__library_projects__/Splat/library_project_imports/res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>/Users/dam01/Projects/luisingsis27/XammaGames.git/XammaGames/XammaGames.Droid/obj/Release/__library_projects__/Xamarin.Android.Support.Transition/library_project_imports/res</ResolvedResourceDirectory>
   </ResolvedResourceDirectories>
   <ResolvedAssetDirectories />
   <ResolvedEnvironmentFiles />
   <ResolvedResourceDirectoryStamps>
-    <ResolvedResourceDirectoryStamp>C:\projets\XammaGames\XammaGames\XammaGames.Droid\obj\Release\__library_projects__\AndHUD.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>C:\projets\XammaGames\XammaGames\XammaGames.Droid\obj\Release\__library_projects__\Splat.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>/Users/dam01/Projects/luisingsis27/XammaGames.git/XammaGames/XammaGames.Droid/obj/Release/__library_projects__/AndHUD.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>/Users/dam01/Projects/luisingsis27/XammaGames.git/XammaGames/XammaGames.Droid/obj/Release/__library_projects__/Splat.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>/Users/dam01/Projects/luisingsis27/XammaGames.git/XammaGames/XammaGames.Droid/obj/Release/__library_projects__/Xamarin.Android.Support.Transition.stamp</ResolvedResourceDirectoryStamp>
   </ResolvedResourceDirectoryStamps>
 </Paths>

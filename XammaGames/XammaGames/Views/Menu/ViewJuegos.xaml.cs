@@ -15,12 +15,12 @@ namespace XammaGames
 		{
 			InitializeComponent();
 			viewJuegosVM = new ViewJuegosVM(this);
-			this.BindingContext = viewJuegosVM;
+			BindingContext = viewJuegosVM;
+            NavigationPage.SetBackButtonTitle(this, "Home");
 			listViewJuegos.ItemsSource = viewJuegosVM.cargarJuegos();
 
 			listViewJuegos.ItemTapped += (sender, e) =>
 			{
-				
 				(BindingContext as ViewJuegosVM).ActionVerPartidos((((ListView)sender).SelectedItem as ViewJuegosVM).IdJuego);
 			};
 

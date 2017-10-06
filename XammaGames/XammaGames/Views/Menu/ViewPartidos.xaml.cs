@@ -12,10 +12,17 @@ namespace XammaGames
 		{
 			InitializeComponent();
 			viewPartidosVM = new ViewPartidosVM(idJuegos,this);
-			this.BindingContext = viewPartidosVM;
-			listViewPartidos.ItemsSource = viewPartidosVM.cargarPartidos();
-
-
+			BindingContext = viewPartidosVM;
+            viewPartidosVM.CargarPartidos()
+            .ContinueWith((x)=>
+            {
+                if (x?.Result != null)
+                {
+                    Device.BeginInvokeOnMainThread(()=> {
+                        listViewPartidos.ItemsSource = x.Result;
+                    });
+                }
+            });
 		}
 	}
 }

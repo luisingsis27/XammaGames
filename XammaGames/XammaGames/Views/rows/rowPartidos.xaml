@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentView 
 		xmlns="http://xamarin.com/schemas/2014/forms" 
 		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
@@ -22,8 +22,7 @@
 			
 				<Frame HasShadow="true"  OutlineColor="Black" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" Grid.RowSpan="4" BackgroundColor="Transparent" >
 				</Frame>
-
-
+            
 			<Frame HasShadow="false" Opacity="0.5" OutlineColor="Transparent"  Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"  BackgroundColor="{Binding Color1}" >
 			</Frame>
 			<Frame HasShadow="false" Opacity="0.5" OutlineColor="Transparent"  Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"  BackgroundColor="{Binding Color2}" >

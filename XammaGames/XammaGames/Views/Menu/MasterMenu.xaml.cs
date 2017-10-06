@@ -7,7 +7,8 @@ using Xamarin.Forms.Xaml;
 namespace XammaGames
 {
 	public partial class MasterMenu : MasterDetailPage
-	{
+    {
+
 		MasterViewVM masterViewVM;
 		DetailMenuVM detail;
 		public MasterMenu(string Usuario)

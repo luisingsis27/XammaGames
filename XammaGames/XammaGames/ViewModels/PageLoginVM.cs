@@ -26,26 +26,31 @@ namespace XammaGames
 
 		async void ActionLogueo()
 		{
+
+
 			if (!string.IsNullOrWhiteSpace(Usuario) || !string.IsNullOrWhiteSpace(Password))
 			{
 				
 				if (await CrossConnectivity.Current.IsRemoteReachable("www.google.com"))
 				{
-					Conexion conec = new Conexion();
+					
 					UserDialogs.Instance.ShowLoading("Cargando", MaskType.Gradient);
-					List<Usuarios> listUsuario = await conec.login(Usuario.Trim(), Password.Trim());
+					List<Usuarios> listUsuario = await Conexion.Instance.login(Usuario.Trim(), Password.Trim());
 					if (listUsuario.Count == 1)
 					{
 						Application.Current.MainPage = new MasterMenu(Usuario);
-					}
+                    }
 					else
 					{
 						UserDialogs.Instance.HideLoading();
-						UserDialogs.Instance.ShowError("Verifique usuario o contraseña", 1000);
+						UserDialogs.Instance.Alert("Verifique su conexion a internet", "XammaGames");
+						//UserDialogs.Instance.ShowError("Verifique usuario o contraseña", 1000);
 					}
+
 				}
-				else { 
-						UserDialogs.Instance.ShowError("Verifique su conexion a internet", 1000);
+				else {
+					UserDialogs.Instance.Alert("Verifique su conexion a internet", "XammaGames");
+					UserDialogs.Instance.ShowError("Verifique su conexion a internet", 1000);
 				}
 			}
 			else

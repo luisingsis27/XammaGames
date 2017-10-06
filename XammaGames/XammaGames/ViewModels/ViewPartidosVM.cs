@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading.Tasks;
 using Acr.UserDialogs;
 using Xamarin.Forms;
 
@@ -23,11 +24,11 @@ namespace XammaGames
 			//Application.Current.MainPage = new AddGames();
 		}
 
-		public ObservableCollection<ViewPartidosVM> cargarPartidos()
+		public async Task<ObservableCollection<ViewPartidosVM>> CargarPartidos()
 		{
-			Conexion conect = new Conexion();
-			var Results = conect.ObtenerPartidos();
-			return new ObservableCollection<ViewPartidosVM>( Results.Result.Where(item => item.IdJuego == idJuego).ToList()); 
+            var resp = await Conexion.Instance.ObtenerPartidos(idJuego);
+
+            return resp;
 		}
 
 		#region Propiedades

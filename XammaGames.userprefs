@@ -1,13 +1,41 @@
-﻿<Properties StartupItem="XammaGames\XammaGames.Droid\XammaGames.Droid.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.XammaGames.Droid PreferredExecutionTarget="Android.Nexus 4 (KitKat)" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="XammaGames\XammaGames\Views\rows\rowPartidos.xaml">
+﻿<Properties StartupConfiguration="{60CC3582-540C-4995-B732-8ADBD36FD1B0}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Estado de XammaGames.git">
     <Files>
-      <File FileName="XammaGames\XammaGames\Views\rows\rowPartidos.xaml" Line="29" Column="4" />
+      <File FileName="XammaGames/XammaGames/Views/PageLogin.xaml.cs" Line="1" Column="1" />
+      <File FileName="XammaGames/XammaGames/ViewModels/PageLoginVM.cs" Line="1" Column="1" />
+      <File FileName="XammaGames/XammaGames/Views/Menu/MasterMenu.xaml" Line="21" Column="1" />
+      <File FileName="XammaGames/XammaGames/Views/Menu/MasterMenu.xaml.cs" Line="1" Column="1" />
+      <File FileName="XammaGames/XammaGames/ViewModels/MasterViewVM.cs" Line="1" Column="1" />
+      <File FileName="XammaGames/XammaGames/Views/Menu/DetailMenu.xaml" Line="38" Column="1" />
+      <File FileName="XammaGames/XammaGames/Views/Menu/ViewJuegos.xaml" Line="36" Column="1" />
+      <File FileName="XammaGames/XammaGames/Views/Menu/ViewJuegos.xaml.cs" Line="1" Column="1" />
+      <File FileName="XammaGames/XammaGames/ViewModels/ViewJuegosVM.cs" Line="1" Column="1" />
+      <File FileName="XammaGames/XammaGames.iOS/AppDelegate.cs" Line="1" Column="1" />
+      <File FileName="XammaGames/XammaGames/Views/Menu/DetailMenu.xaml.cs" Line="16" Column="13" />
+      <File FileName="XammaGames/XammaGames/ViewModels/DetailMenuVM.cs" Line="11" Column="10" />
+      <File FileName="XammaGames/XammaGames/ViewModels/ViewPartidosVM.cs" Line="1" Column="1" />
+      <File FileName="XammaGames/XammaGames/Clases/Conexion.cs" Line="1" Column="1" />
+      <File FileName="XammaGames/XammaGames.iOS/Main.cs" Line="17" Column="1" />
+      <File FileName="XammaGames/XammaGames/Models/Usuarios.cs" Line="16" Column="15" />
+      <File FileName="XammaGames/XammaGames/Views/Menu/ViewPartidos.xaml.cs" Line="1" Column="1" />
+      <File FileName="XammaGames/XammaGames/ViewModels/AddGamesVM.cs" Line="1" Column="1" />
+      <File FileName="XammaGames/XammaGames/Views/Menu/ViewPartidos.xaml" Line="36" Column="1" />
+      <File FileName="XammaGames/XammaGames/ViewModels/RegistrarUsuarioVM.cs" Line="1" Column="1" />
+      <File FileName="XammaGames/XammaGames/Views/AddPartidos.xaml.cs" Line="11" Column="10" />
+      <File FileName="XammaGames/XammaGames/Views/AddPartidos.xaml" Line="27" Column="1" />
+      <File FileName="XammaGames/XammaGames/Views/AddGames.xaml" Line="34" Column="1" />
+      <File FileName="XammaGames/XammaGames/Views/AddGames.xaml.cs" Line="1" Column="1" />
+      <File FileName="XammaGames/XammaGames/App.xaml.cs" Line="1" Column="1" />
+      <File FileName="XammaGames/XammaGames.iOS/Renders/NavigationRender.cs" Line="10" Column="33" />
+      <File FileName="Estado de XammaGames.git" />
     </Files>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/dam01/Projects/luisingsis27/XammaGames.git/XammaGames/XammaGames.iOS/Renders/NavigationRender.cs" relfile="XammaGames/XammaGames.iOS/Renders/NavigationRender.cs" line="33" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
 </Properties>

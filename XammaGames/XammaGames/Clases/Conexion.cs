@@ -14,17 +14,47 @@ namespace XammaGames
 {
 	public class Conexion
 	{
-		public Conexion()
+        private Conexion()
 		{
 		}
 
+		private static Conexion instance;
+
+		public static Conexion Instance
+		{
+			get
+			{
+				if (instance == null)
+				{
+					instance = new Conexion();
+				}
+				return instance;
+			}
+		}
+        private List<Usuarios> ListaJugadores = new List<Usuarios>();
+
+        public List<Usuarios> listaJugadores{
+            get
+            {
+                return ListaJugadores; 
+            }
+            set 
+            {
+                ListaJugadores = value;
+            }
+        }
+
+
 		public  Task<List<Usuarios>> login(string Username, string Password)
 		{
+           
 			return Task.Run(async() => { 
 				try
 				{
 					UsuariosList listUsuario = new UsuariosList();
-					using (var client = new HttpClient())
+					HttpClientHandler handler = new HttpClientHandler();
+					
+					using (var client = new HttpClient(handler))
 					{
 						client.BaseAddress = new Uri("https://parseapi.back4app.com/");
 						//client.DefaultRequestHeaders.Accept.Clear();
@@ -32,16 +62,14 @@ namespace XammaGames
 						client.DefaultRequestHeaders.Add("X-Parse-REST-API-Key", "yttT5ALodijbui6GfeK82PRXtZFqGtuxvFJOjRnT");
 						client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-
-						//HttpResponseMessage response = await client.GetAsync(String.Format("classes/Usuarios/Usuario={0}&Password={1}",Username,Password));
-						HttpResponseMessage response = await client.GetAsync("classes/Usuarios");
+                        HttpResponseMessage response = await client.GetAsync("classes/Usuarios?"+"where={\"Usuario\":\"" + Username + "\",\"Password\":\"" + Password + "\"}");
+						string resultContents = await response.Content.ReadAsStringAsync();
+						Debug.WriteLine(resultContents);
 						if (response.IsSuccessStatusCode)
 						{
-							var content = await response.Content.ReadAsStringAsync();
-
-							listUsuario = JsonConvert.DeserializeObject<UsuariosList>(content);
-							var we = listUsuario.results.Where(item => item.Usuario == Username && item.Password == Password).ToList();
-							return we;
+							listUsuario = JsonConvert.DeserializeObject<UsuariosList>(resultContents);
+							//var we = listUsuario.results.Where(item => item.Usuario == Username && item.Password == Password).ToList();
+                            return listUsuario.results;
 						}
 					}
 
@@ -55,6 +83,8 @@ namespace XammaGames
 				}
 			});
 		}
+
+	
 
 		public Task<ObservableCollection<ViewJuegosVM>> ObtenerJuegos()
 		{
@@ -255,7 +285,7 @@ namespace XammaGames
 			});
 		}
 
-		public  Task<ObservableCollection<ViewPartidosVM>> ObtenerPartidos()
+        public  Task<ObservableCollection<ViewPartidosVM>> ObtenerPartidos(string idJuego)
 		{
 			return Task.Run(async () =>
 			{
@@ -270,26 +300,27 @@ namespace XammaGames
 						client.DefaultRequestHeaders.Add("X-Parse-REST-API-Key", "yttT5ALodijbui6GfeK82PRXtZFqGtuxvFJOjRnT");
 						client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-						HttpResponseMessage response = await client.GetAsync("classes/Partidos");
+                        HttpResponseMessage response = await client.GetAsync("classes/Partidos?"+"where={ \"IdJuego\":\"" + idJuego + "\"}");
+						string resultContents = await response.Content.ReadAsStringAsync();
+						Debug.WriteLine(resultContents);
+                        Device.BeginInvokeOnMainThread(()=>{
+                            
+                        });
 						if (response.IsSuccessStatusCode)
 						{
 							
-							var content = await response.Content.ReadAsStringAsync();
 
-							listPartidos = JsonConvert.DeserializeObject<PartidosListVM>(content);
-						
+							listPartidos = JsonConvert.DeserializeObject<PartidosListVM>(resultContents);
 							foreach (var item in listPartidos.results)
 							{
-								var nombreJuego = await ObtenerNombreJuego(item.IdJuego);
-								item.NameJuego = nombreJuego.ToString();
-								var usuario1 = await ObtenerNombreJugador(item.IdUsuario1);
+                                var usuario1 = (listaJugadores.Count() == 0 ? await ObtenerJugadores() : ListaJugadores).Where(x => x.IdUsuario == item.IdUsuario1)?.Single()?.Usuario; // listaJugadores?.Where(x => x.IdUsuario == item.IdUsuario1)?.Single()?.Usuario;
 								item.Usuario1 = usuario1.ToString();
-								var usuario2 = await ObtenerNombreJugador(item.IdUsuario2);
+								var usuario2 = (listaJugadores.Count() == 0 ? await ObtenerJugadores() : ListaJugadores).Where(x => x.IdUsuario == item.IdUsuario2)?.Single()?.Usuario;
 								item.Usuario2 = usuario2.ToString();
 								item.Color1 = int.Parse(item.Score1) >= int.Parse(item.Score2) ? Color.Green : Color.Red;
 								item.Color2 = int.Parse(item.Score2) >= int.Parse(item.Score1) ? Color.Green : Color.Red;
 							}
-
+                            listaJugadores = new List<Usuarios>();
 							return listPartidos.results;
 						}
 
@@ -339,7 +370,7 @@ namespace XammaGames
 
 		}
 
-		public Task<string> ObtenerNombreJugador(string IdJugador)
+        public Task<List<Usuarios>> ObtenerJugadores()
 		{
 			return Task.Run(async () =>
 			{
@@ -353,24 +384,30 @@ namespace XammaGames
 						client.DefaultRequestHeaders.Add("X-Parse-Application-Id", "KmSpRBINwKQ8AN1fDl77tyrnKlBxDtKfifMztXZx");
 						client.DefaultRequestHeaders.Add("X-Parse-REST-API-Key", "yttT5ALodijbui6GfeK82PRXtZFqGtuxvFJOjRnT");
 						client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+						
+                        HttpResponseMessage response = await client.GetAsync("classes/Usuarios");
+						string resultContents = await response.Content.ReadAsStringAsync();
+						Debug.WriteLine(resultContents);
+                        Device.BeginInvokeOnMainThread(()=>{
 
-						HttpResponseMessage response = await client.GetAsync("classes/Usuarios");
-						if (response.IsSuccessStatusCode)
+
+                        });
+                        if (response.IsSuccessStatusCode)
 						{
 
 							var content = await response.Content.ReadAsStringAsync();
 
-							listJugador = JsonConvert.DeserializeObject<UsuariosList>(content);
-							var juegoNombre = listJugador.results.Where(item => item.IdUsuario == IdJugador).First();
-							return juegoNombre.Usuario;
+                            listJugador = JsonConvert.DeserializeObject<UsuariosList>(content);
+                            ListaJugadores = listJugador.results;
+                            return listJugador.results;
 						}
 					}
-					return "";
+					return null;
 				}
 				catch (Exception ex)
 				{
 					Debug.WriteLine(ex.Message);
-					return "";
+					return null;
 				}
 			});
 		}

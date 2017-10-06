@@ -15,9 +15,7 @@ namespace XammaGames
         public App()
         {
             InitializeComponent();
-
-
-			MainPage = new XammaGames.Views.PageLogin();
+			MainPage = new PageLogin();
         }
 
         protected override void OnStart()

@@ -12,6 +12,7 @@ public abstract class AbstractDialogFragment_1
 		__md_methods = 
 			"n_onSaveInstanceState:(Landroid/os/Bundle;)V:GetOnSaveInstanceState_Landroid_os_Bundle_Handler\n" +
 			"n_onCreateDialog:(Landroid/os/Bundle;)Landroid/app/Dialog;:GetOnCreateDialog_Landroid_os_Bundle_Handler\n" +
+			"n_onDetach:()V:GetOnDetachHandler\n" +
 			"";
 		mono.android.Runtime.register ("Acr.UserDialogs.Fragments.AbstractDialogFragment`1, Acr.UserDialogs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", AbstractDialogFragment_1.class, __md_methods);
 	}
@@ -39,6 +40,14 @@ public abstract class AbstractDialogFragment_1
 	}
 
 	private native android.app.Dialog n_onCreateDialog (android.os.Bundle p0);
+
+
+	public void onDetach ()
+	{
+		n_onDetach ();
+	}
+
+	private native void n_onDetach ();
 
 	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)

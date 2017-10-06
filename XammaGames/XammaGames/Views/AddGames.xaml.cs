@@ -11,7 +11,7 @@ namespace XammaGames
 		public AddGames()
 		{
 			InitializeComponent();
-			addGamesVM = new AddGamesVM();
+			addGamesVM = new AddGamesVM(this);
 			BindingContext = addGamesVM;
 		}
 	}

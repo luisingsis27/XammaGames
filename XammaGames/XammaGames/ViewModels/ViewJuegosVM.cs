@@ -27,15 +27,21 @@ namespace XammaGames
 		public  ObservableCollection<ViewJuegosVM> cargarJuegos()
 		{
 
-			Conexion conect = new Conexion();
 			//ObservableCollection<ViewJuegosVM> Results = new ObservableCollection<ViewJuegosVM>();
-			var Results =  conect.ObtenerJuegos();
+			var Results =  Conexion.Instance.ObtenerJuegos();
 			return Results.Result;
 		}
 		void ActionAgregarJuegos()
 		{
-			nuevoJuego.Navigation.PushModalAsync(new AddGames());
-			//Application.Current.MainPage = new AddGames();
+            //Application.Current.MainPage = new AddGames();
+
+            nuevoJuego.Navigation.PushModalAsync(new NavigationPage(new AddGames())
+            {
+                BarBackgroundColor = Color.FromHex("#56427F")
+            });
+           
+
+
 		}
 		public void ActionVerPartidos(string idjuego)
 		{

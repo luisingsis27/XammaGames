@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using Acr.UserDialogs;
 using Plugin.Connectivity;
@@ -9,9 +10,13 @@ namespace XammaGames
 {
 	public class AddGamesVM:BaseViewModel
 	{
-		public AddGamesVM()
+        Page pageAddGames;
+        public AddGamesVM(Page pageAddGames)
 		{
+			this.pageAddGames = pageAddGames;
+            //NavigationPage.SetHasNavigationBar(pageAddGames, false);
 			btnGuardarJuego = new Command(ActionGuardarJuego);
+            btnCancelar = new Command(ActionCerrar);
 		}
 
 		async void ActionGuardarJuego()
@@ -21,11 +26,9 @@ namespace XammaGames
 			{
 				if (await CrossConnectivity.Current.IsRemoteReachable("www.google.com"))
 				{
-					Conexion conec = new Conexion();
 					UserDialogs.Instance.ShowLoading("Guardando", MaskType.Gradient);
-					IdJuego = (await conec.ObtenerIdJuegos()).ToString();
-					conec = new Conexion();
-					bool seGuardo=  await conec.GuardarJuego(IdJuego, Nombre);
+					IdJuego = (await Conexion.Instance.ObtenerIdJuegos()).ToString();
+					bool seGuardo=  await Conexion.Instance.GuardarJuego(IdJuego, Nombre);
 					if (seGuardo)
 					{
 						
@@ -48,6 +51,19 @@ namespace XammaGames
 			}
 
 		}
+
+        async void ActionCerrar()
+        {
+            try
+            {
+               await pageAddGames.Navigation.PopModalAsync();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+
+        }
 		protected Command _GuardarJuego;
 
 		public Command btnGuardarJuego
@@ -57,6 +73,17 @@ namespace XammaGames
 			{
 				_GuardarJuego = value;
 				OnPropertyChanged(nameof(btnGuardarJuego));
+			}
+		}
+		protected Command _Cancelar;
+
+		public Command btnCancelar
+		{
+			get { return _Cancelar; }
+			set
+			{
+				_Cancelar = value;
+                OnPropertyChanged(nameof(btnCancelar));
 			}
 		}
 

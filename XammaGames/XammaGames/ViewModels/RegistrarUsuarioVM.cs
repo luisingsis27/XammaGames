@@ -26,14 +26,12 @@ namespace XammaGames
 
 				if (await CrossConnectivity.Current.IsRemoteReachable("www.google.com"))
 				{
-					Conexion conec = new Conexion();
+				
 					UserDialogs.Instance.ShowLoading("Guardando", MaskType.Gradient);
-					if (!await conec.VerificarUsuario(Usuario))
+					if (!await Conexion.Instance.VerificarUsuario(Usuario))
 					{
-						conec = new Conexion();
-						IdUsuario = (await conec.ObtenerIdUsuario()).ToString();
-						conec = new Conexion();
-						bool seGuardo = await conec.GuardarUsurio(IdUsuario, Usuario, Password);
+						IdUsuario = (await Conexion.Instance.ObtenerIdUsuario()).ToString();
+						bool seGuardo = await Conexion.Instance.GuardarUsurio(IdUsuario, Usuario, Password);
 
 						if (seGuardo)
 						{

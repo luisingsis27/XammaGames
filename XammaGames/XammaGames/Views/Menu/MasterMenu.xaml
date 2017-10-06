@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <MasterDetailPage 
 				  x:Class="XammaGames.MasterMenu"
 	              xmlns="http://xamarin.com/schemas/2014/forms" 
